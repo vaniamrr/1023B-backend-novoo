@@ -2,7 +2,8 @@ import express from 'express'
 import mysql from 'mysql2/promise'
 import 'dotenv/config'
 
-//laaaaaaaaaaaaaaaaaaaaaaa
+//laaaaaaaaaaaaaaaaaaaa
+///lalalalla
 
 const app = express()
 app.get('/', async (req, res) => {
@@ -68,7 +69,7 @@ app.get('/produtos', async (req, res) => {
         await conn.end()
 
     } catch (err) {
-        
+
         if (err instanceof Error === false) {
             res.status(500).send('Erro desconhecido ao conectar ao banco de dados')
         }
