@@ -48,8 +48,11 @@ app.get('/', async (req, res) => {
 })
 
 
-app.get('/produtos1023b', async (req, res) => {
+app.get('/produtos', async (req, res) => {
     try {
+
+        console.log('Tentando conectar ao banco de dados com as seguintes configurações:')
+
         const conn = await mysql.createConnection({
             host: process.env.DBHOST!,
             user: process.env.DBUSER!,
@@ -60,13 +63,19 @@ app.get('/produtos1023b', async (req, res) => {
         const [rows] = await conn.query('SELECT id, nome, preco, urlfoto, descricao FROM produtos1023b')
         res.json(rows)
 
+        console.log('Conexão bem-sucedida!')
+
         await conn.end()
+
     } catch (err) {
+        
         if (err instanceof Error === false) {
             res.status(500).send('Erro desconhecido ao conectar ao banco de dados')
         }
         const error = err as Error
         res.status(500).send('Erro ao conectar ao banco de dados: ' + error.message)
+        console.log('Erro ao conectar ao banco de dados: ' + error.message)
+
     }
 })
 
