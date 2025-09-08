@@ -57,7 +57,7 @@ app.get('/produtos', async (req, res) => {
             database: process.env.DBNAME!,
             port: Number(process.env.DBPORT!)
         })
-        const [rows] = await conn.query('SELECT id, nome, preco FROM produtos')
+        const [rows] = await conn.query('SELECT id, nome, preco, urlfoto, descricao FROM produtos1023b')
         res.json(rows)
     } catch (err) {
         if (err instanceof Error === false) {
