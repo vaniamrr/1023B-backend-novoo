@@ -48,7 +48,7 @@ app.get('/', async (req, res) => {
 })
 
 
-app.get('/produtos', async (req, res) => {
+app.get('/produtos1023b', async (req, res) => {
     try {
         const conn = await mysql.createConnection({
             host: process.env.DBHOST!,
