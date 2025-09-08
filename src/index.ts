@@ -59,6 +59,8 @@ app.get('/produtos', async (req, res) => {
         })
         const [rows] = await conn.query('SELECT id, nome, preco, urlfoto, descricao FROM produtos1023b')
         res.json(rows)
+
+        await conn.end()
     } catch (err) {
         if (err instanceof Error === false) {
             res.status(500).send('Erro desconhecido ao conectar ao banco de dados')
